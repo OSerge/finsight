@@ -1,6 +1,6 @@
 # SEC Insights Frontend
 
-This is SEC Insights, a tool that let's you analyze multiple financial documents, powered by LlamaIndex. [Live URL](https://secinsights.ai/)
+This is Fnsight, a tool that let's you analyze multiple financial documents, powered by LlamaIndex.
 
 ## Technical Details
 
