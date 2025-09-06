@@ -1,5 +1,5 @@
-# SEC Insights Backend
-Live at https://secinsights.ai/
+# Finsight Backend
+
 ## Setup Dev Workspace
 1. Install [pyenv](https://github.com/pyenv/pyenv#automatic-installer) and then use it to install the Python version in `.python-version`.
     1. install pyenv with `curl https://pyenv.run | bash`
@@ -17,24 +17,11 @@ Live at https://secinsights.ai/
     - This spins up the Postgres 15 DB & Localstack in their own docker containers.
     - The server will not run in a container but will instead run directly on your OS.
         - This is to allow for use of debugging tools like `pdb`
-1. Lastly, you will likely want to populate your local database with some sample SEC filings
-    - We have a script for this! But first, open your `.env` file and replace the placeholder value for the `OPENAI_API_KEY` with your own OpenAI API key
-        - At some point you will want to do the same for the other secret keys in here like `POLYGON_IO_API_KEY`, `AWS_KEY`, & `AWS_SECRET`
-        - To follow the [SEC's Internet Security Policy](https://www.sec.gov/os/webmaster-faq#code-support), make sure to also replace the `SEC_EDGAR_COMPANY_NAME` & `SEC_EDGAR_EMAIL` values in the `.env` file with your own values.
-    - Source the file again with `set -a` then `source .env`
-    - Run `make seed_db_local`
-        - If this step fails, you may find it helpful to run `make refresh_db` to wipe your local database and re-start with emptied tables.
-    - Done 🏁! You can run `make run` again and you should see some documents loaded at http://localhost:8000/api/document
-
-For any issues in setting up the above or during the rest of your development, you can check for solutions in the following places:
-- [`backend/troubleshooting.md`](https://github.com/run-llama/sec-insights/blob/main/backend/troubleshooting.md)
-- [Open & already closed Github Issues](https://github.com/run-llama/sec-insights/issues?q=is%3Aissue+is%3Aclosed)
-- The [#sec-insights discord channel](https://discord.com/channels/1059199217496772688/1150942525968879636)
 
 ## LLM Observability
 
 This project will automatically spin up a local version of [Arize Phoenix](https://phoenix.arize.com/) for you and send traces to it as you're using the chat interface.
-Arize Phoenix is a open source LLM observability & evaluation tool. LlamaIndex's event instrumentation system is deeply integrated with Arize Phoenix to make it easier for you to debug your LLM application during development. Simply open the Arize Phoenix Dashboard at [`http://localhost:6006/`](http://localhost:6006/) when running SEC Insights locally to see the traced calls to LLMs, Embedding Models, Vector DBs, and more.
+Arize Phoenix is a open source LLM observability & evaluation tool. LlamaIndex's event instrumentation system is deeply integrated with Arize Phoenix to make it easier for you to debug your LLM application during development. Simply open the Arize Phoenix Dashboard at [`http://localhost:6006/`](http://localhost:6006/) when running Finsight locally to see the traced calls to LLMs, Embedding Models, Vector DBs, and more.
 
 ## Scripts
 The `scripts/` folder contains several scripts that are useful for both operations and development.
@@ -74,7 +61,7 @@ Created conversation with ID 8371bbc8-a7fd-4b1f-889b-d0bc882df2a5
 Hello! How can I assist you today?
 ```
 
-## SEC Document Downloader 📃
+## Document Downloader 📃
 We have a script to easily download SEC 10-K & 10-Q files! This is a single step of the larger seed script described in the next section. Unless you have some use for just running this step on it's own, you probably want to stick to the Seed script described in the section below 🙂
 However, the setup instructions for this script are a pre-requisite for running the seed script.
 
