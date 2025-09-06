@@ -1,6 +1,6 @@
-# SEC Insights Frontend
+# Finsight Frontend
 
-This is Fnsight, a tool that let's you analyze multiple financial documents, powered by LlamaIndex.
+This is Finsight, a tool that let's you analyze multiple financial documents, powered by LlamaIndex.
 
 ## Technical Details
 
